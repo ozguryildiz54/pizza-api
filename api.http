@@ -1,0 +1,76 @@
+@simpleToken = Token {{login.response.body.token}}
+@accessToken = Bearer {{login.response.body.bearer.access}}
+@refreshToken = Bearer {{login.response.body.bearer.refresh}}
+@baseUrl = http://localhost:8000
+
+###
+
+# @name login
+post {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username":"test1",
+    "password":"test1",
+    "email":"test1@gmail.com"
+}
+
+### 
+# @name refreshToken
+post {{baseUrl}}/auth/refresh
+Content-Type: application/json
+
+{   
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGMxZGEzOWMyMDEwY2YxMWM1MjM4MjIiLCJpYXQiOjE3NTc3MDYwNDksImV4cCI6MTc1Nzc5MjQ0OX0.juBdXymsr6NaKPA0bmpRo8q6_EBuSQuw-vjhLk06Gmc"
+}
+
+###
+
+# @name users
+post {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "username":"alidrl",
+    "password":"test1",
+    "email":"alidrd@gmail.com"
+}
+
+
+###
+
+# @name toppings
+get {{baseUrl}}/toppings
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+    "name": "Topping-3"
+}
+
+###
+
+# @name pizzas
+post {{baseUrl}}/pizzas
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+    "name": "Pizza-2",
+    "price": 10,
+    "toppingIds": ["68c47c8e593fe1a527a3112a"]
+}
+
+###
+
+# @name orders
+post {{baseUrl}}/orders
+Content-Type: application/json
+Authorization: {{accessToken}}
+
+{
+    "pizzaId": "68c47d82593fe1a527a31138",
+    "size": "Medium",
+    "quantity": 6,
+    "toppingIds": ["68c47c8e593fe1a527a3112a"]
+}
