@@ -14,9 +14,10 @@ router.all('/', (req, res) => {
     })
 })
 
-// JSON:
+// JSON (require so the file is bundled into the serverless function):
+const swaggerJson = require('../configs/swagger.json')
 router.use('/json', (req, res) => {
-    res.sendFile(`/src/configs/swagger.json`, { root: '.' })
+    res.json(swaggerJson)
 })
 
 // Redoc:
