@@ -170,8 +170,12 @@ app.all('/*splat', (req, res) => {
 // ErrorHandler:
 app.use(require('./src/middlewares/errorHandler'))
 
-// RUN SERVER:
-app.listen(PORT, () => console.log('http://127.0.0.1:' + PORT))
+// RUN SERVER (skip on serverless):
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => console.log('http://127.0.0.1:' + PORT))
+}
+
+module.exports = app;
 
 /* ------------------------------------------------------- */
 //! Syncronization (must be in commentLine):

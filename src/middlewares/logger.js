@@ -14,6 +14,13 @@ const customLog = 'TIME=":date[iso]" - URL=":url" - Method=":method" - IP=":remo
 const now = new Date();
 const today = now.toISOString().split('T')[0]
 
-module.exports = morgan(customLog, {
-    stream: fs.createWriteStream(`./logs/${today}.log`, { flags: 'a+' })
-});
+const isServerless = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+
+if (isServerless) {
+    module.exports = morgan(customLog);
+} else {
+    if (!fs.existsSync('./logs')) fs.mkdirSync('./logs', { recursive: true });
+    module.exports = morgan(customLog, {
+        stream: fs.createWriteStream(`./logs/${today}.log`, { flags: 'a+' })
+    });
+}
