@@ -141,10 +141,21 @@ app.all('/', (req, res) => {
     res.send({
         error: false,
         message: 'Welcome to PIZZA API',
+        demo: {
+            note: 'Use the credentials below at /auth/login or in Swagger UI Authorize dialog',
+            email: 'demo@demo.com',
+            password: 'Demo1234!',
+            role: 'admin',
+        },
         docs: {
             swagger: "/documents/swagger",
             redoc: "/documents/redoc",
             json: "/documents/json",
+        },
+        examples: {
+            login: 'POST /auth/login  body: {"email":"demo@demo.com","password":"Demo1234!"}',
+            listPizzas: 'GET /pizzas',
+            listToppings: 'GET /toppings',
         },
         user: req.user,
     })

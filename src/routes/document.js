@@ -23,9 +23,31 @@ router.use('/json', (req, res) => {
 const redoc = require('redoc-express')
 router.use('/redoc', redoc({ specUrl: '/documents/json', title: 'API Docs' }))
 
-// Swagger:
-const swaggerUi = require('swagger-ui-express')
-router.use('/swagger', swaggerUi.serve, swaggerUi.setup(require('../configs/swagger.json'), { swaggerOptions: { persistAuthorization: true } }))
+// Swagger UI (CDN-based — works on serverless without static asset shipping):
+router.get('/swagger', (req, res) => {
+    res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pizza API — Swagger UI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css" />
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+  <script>
+    window.ui = SwaggerUIBundle({
+      url: '/documents/json',
+      dom_id: '#swagger-ui',
+      presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+      layout: 'StandaloneLayout',
+      persistAuthorization: true,
+    });
+  </script>
+</body>
+</html>`)
+})
 
 /* ------------------------------------------------------- */
 module.exports = router

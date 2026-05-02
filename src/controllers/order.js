@@ -4,6 +4,7 @@
 ------------------------------------------------------- */
 
 const Order = require('../models/order');
+const Pizza = require('../models/pizza');
 const CustomError = require('../helpers/customError');
 
 module.exports = {
@@ -38,10 +39,15 @@ module.exports = {
             #swagger.summary = 'Create Order'
         */
 
-        //? adding logged in user`s id to req.body as userId field
+        // adding logged in user's id to req.body as userId field
+        if (req.user?._id) req.body.userId = req.user._id;
 
-        //? find pizza price using pizzaId field
-
+        // find pizza price using pizzaId field
+        if (req.body.pizzaId && !req.body.price) {
+            const pizza = await Pizza.findById(req.body.pizzaId);
+            if (!pizza) throw new CustomError('Pizza not found', 404);
+            req.body.price = pizza.price;
+        }
 
         const result = await Order.create(req.body);
 
