@@ -145,6 +145,15 @@ app.get('/', (req, res) => {
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pizza API — Ozgur Yildiz</title>
+<meta property="og:title" content="🍕 Pizza API — Live Demo with Swagger" />
+<meta property="og:description" content="REST API for a pizza ordering system — Express + MongoDB + JWT + Multer + Swagger. Live demo: demo@demo.com / Demo1234!" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&h=630&fit=crop" />
+<meta property="og:url" content="https://ozguryildiz-pizza-api.vercel.app" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="🍕 Pizza API — Live Demo with Swagger" />
+<meta name="twitter:description" content="REST API: Express + MongoDB + JWT + Swagger. Demo creds shown on landing page." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&h=630&fit=crop" />
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #ff6b35 0%, #c1272d 100%); min-height: 100vh; padding: 2rem 1rem; color: #1a1a1a; }
