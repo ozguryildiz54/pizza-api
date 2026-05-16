@@ -1,7 +1,4 @@
 "use strict"
-/* -------------------------------------------------------
-    | FULLSTACK TEAM | NODEJS / EXPRESS |
-------------------------------------------------------- */
 const router = require('express').Router();
 /* ------------------------------------------------------- */
 // ROUTER INDEX:
@@ -17,7 +14,7 @@ router.use('/tokens', require('./token'));
 
 // order:
 router.use('/orders', require('./order'));
-// pizza:\
+// pizza:
 router.use('/pizzas', require('./pizza'));
 // topping:
 router.use('/toppings', require('./topping'));

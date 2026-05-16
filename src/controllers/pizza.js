@@ -1,7 +1,4 @@
 "use strict"
-/* -------------------------------------------------------
-    | FULLSTACK TEAM | NODEJS / EXPRESS |
-------------------------------------------------------- */
 
 const Pizza = require('../models/pizza');
 const CustomError = require('../helpers/customError');

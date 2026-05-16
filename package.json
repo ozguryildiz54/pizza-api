@@ -9,9 +9,12 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "Clarusway",
-  "email": "info@clarusway.com",
+  "author": "Ozgur Yildiz",
+  "email": "ozguryildiz0@outlook.com",
   "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^5.1.0",

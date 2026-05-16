@@ -1,7 +1,4 @@
 "use strict"
-/* -------------------------------------------------------
-    | FULLSTACK TEAM | NODEJS / EXPRESS |
-------------------------------------------------------- */
 
 const Order = require('../models/order');
 const Pizza = require('../models/pizza');

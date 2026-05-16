@@ -39,10 +39,11 @@ curl https://ozguryildiz-pizza-api.vercel.app/toppings
 ## 🛠 Run Locally
 
 ```bash
-git clone https://github.com/ozguryildiz54/pizza-api.git
+git clone https://github.com/yldzozgur/pizza-api.git
 cd pizza-api
 npm install
-cp .env-sample .env  # add MONGODB connection string + JWT secrets
+cp .env-sample .env   # then fill in MONGODB URI + JWT secrets
+mkdir logs
 npm run dev
 ```
 

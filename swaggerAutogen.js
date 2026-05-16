@@ -1,7 +1,4 @@
 "use strict"
-/* -------------------------------------------------------
-	| FULLSTACK TEAM | NODEJS / EXPRESS |
-------------------------------------------------------- */
 require('dotenv').config()
 const HOST = process.env?.HOST || '127.0.0.1'
 const PORT = process.env?.PORT || 8000
@@ -14,7 +11,6 @@ const document = {
 		version: packageJson.version,
 		title: packageJson.title,
 		description: packageJson.description,
-		termsOfService: "http://www.CourseName.com/#",
 		contact: { name: packageJson.author, email: packageJson.email },
 		license: { name: packageJson.license, },
 	},
