@@ -24,13 +24,13 @@ router.use('/json', (req, res) => {
 const redoc = require('redoc-express')
 router.use('/redoc', redoc({ specUrl: '/documents/json', title: 'API Docs' }))
 
-// Swagger UI (CDN-based — works on serverless without static asset shipping):
+// Swagger UI (CDN-based, works on serverless without static asset shipping):
 router.get('/swagger', (req, res) => {
     res.send(`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pizza API — Swagger UI</title>
+  <title>Pizza API | Swagger UI</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5/swagger-ui.css" />
 </head>
 <body>

@@ -1,6 +1,6 @@
 # Pizza API
 
-REST API for a pizza ordering system — Express + MongoDB + JWT + Multer + Nodemailer + Swagger.
+REST API for a pizza ordering system. Express + MongoDB + JWT + Multer + Nodemailer + Swagger.
 
 > 🔗 **Live API:** https://ozguryildiz-pizza-api.vercel.app
 > 📘 **Live Swagger UI:** https://ozguryildiz-pizza-api.vercel.app/documents/swagger
